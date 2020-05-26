@@ -9,6 +9,7 @@ public class HashMapExample {
 		hashmapexample.put("StudentOne", "Amit");
 		hashmapexample.put("StudentTwo", "Vijay");
 		hashmapexample.put("StudentThree", "Rahul");
+		//hashmapexample.put("StudentThree", "Laddu");
 
 		// Get values using entryset
 		for (Map.Entry m : hashmapexample.entrySet()) {
