@@ -1,0 +1,9 @@
+package exceptionHandling;
+
+public class CustomException extends Exception {
+	public CustomException(String s) {
+		// Call constructor of parent Exception
+		super(s);
+	}
+
+}

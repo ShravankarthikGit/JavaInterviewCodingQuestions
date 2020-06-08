@@ -1,6 +1,11 @@
+/test/
+/test2/
+/exceptionHandling/
+/javaArray/
 /InterqQuesAbstractClassTest/
 /InterviewQues3/
 /JavMap/
+/JavaList/
 /KeyValuePair/
 /PracticePackage/
 /TestEncapsulation/
@@ -8,9 +13,8 @@
 /TestSuperAndThisKeywords/
 /interviewques1/
 /interviewques2/
-/test/
-/test2/
-/JavaList/
 /javaQueue/
-/propertiesFile/
 /propertiesClass/
+/javaControlStatements/
+/lambdaExpressions/
+/javaInputOutput/
