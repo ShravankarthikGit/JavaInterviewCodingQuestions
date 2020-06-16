@@ -3,7 +3,7 @@ package interviewques1;
 public class CheckPrimeNumber {
 
 	public static void main(String args[]) {
-		CheckPrimeNumber(3);
+		CheckPrimeNumber(6);
 	}
 
 	public static Boolean CheckPrimeNumber(int i) {

@@ -23,4 +23,16 @@ public class reverseNumber {
   //output
   System.out.println("Reversed Number is: " + reversedNumber);
  }
+ 
+	public static void ReverseString(String word) {
+		char[] array = word.toCharArray();
+		int len = array.length;
+		char[] palindromeArray = new char[len];
+		int j = palindromeArray.length;
+		for (int i = 0; i< array.length; i++ ) {
+			palindromeArray[j-1] = array[i];
+			j = j-1;
+		}
+		System.out.println(palindromeArray);
+	}
 }
