@@ -2,7 +2,9 @@ package JavaList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 
 public class ArrayListExample {
@@ -35,7 +37,6 @@ public class ArrayListExample {
 			System.out.println(
 					"values of arrlist in reverse using while loop and listiterator : " + iteOneRev.previous());
 		}
-		
 
 		// Traverse through using list iterator
 		ListIterator<String> iteOne = arrlist.listIterator();
@@ -57,12 +58,33 @@ public class ArrayListExample {
 		});
 
 		// Adding elements to arraylist
-		addElementsToArrayList(arrlist);
-		newArrayListToArrayList(arrlist);
-		GetSimiliarElementsofTwoArrayLists(arrlist, arrlistTwo);
-		AddDuplicateElements(arrlist);
-		AddNullElements(arrlist);
-		GetElementsWithIndex(arrlist);
+		// addElementsToArrayList(arrlist);
+		// newArrayListToArrayList(arrlist);
+		// GetSimiliarElementsofTwoArrayLists(arrlist, arrlistTwo);
+		// AddDuplicateElements(arrlist);
+		// AddNullElements(arrlist);
+		// GetElementsWithIndex(arrlist);
+		//ConvertIntArrayToArraylist(new int[] {23,78,77,99});
+		//ConvertStringArrayToArraylist(new String[] { "app", "bhh", "uuh", "iik", "oojk", "juj" });
+
+		ArrayList<String> arrlisttwo = new ArrayList<String>();
+		arrlisttwo.add("Apple");
+		arrlisttwo.add("Ball");
+		arrlisttwo.add("Cat");
+		arrlisttwo.add("Dog");
+		arrlisttwo.add("Zebra");
+		// SortStringArray(arrlisttwo);
+		// ReverseStringArray(arrlisttwo);
+
+		ArrayList<Integer> arrlistInteger = new ArrayList<Integer>();
+		arrlistInteger.add(12);
+		arrlistInteger.add(999);
+		arrlistInteger.add(90);
+		arrlistInteger.add(-1);
+		arrlistInteger.add(0);
+		// SortIntegerArray(arrlistInteger);
+		// ReversetIntegerArray(arrlistInteger);
+		SortIntegerArrayInDescendingOrder(arrlistInteger);
 
 	}
 
@@ -132,6 +154,48 @@ public class ArrayListExample {
 			String st = arrlist.get(i);
 			System.out.println("Get values of arrlist using index : " + st);
 		}
+	}
+
+	public static void SortStringArray(ArrayList<String> arrlist) {
+		Collections.sort(arrlist);
+		System.out.println(arrlist + " --> SortStringArray output");
+	}
+
+	public static void SortIntegerArray(ArrayList<Integer> arrlist) {
+		Collections.sort(arrlist);
+		System.out.println(arrlist + " --> SortIntegerArray output");
+	}
+	
+	public static void SortIntegerArrayInDescendingOrder(ArrayList<Integer> arrlist) {
+		Collections.sort(arrlist, Collections.reverseOrder());
+		System.out.println(arrlist + " --> SortIntegerArray output");
+	}
+
+	public static void ReverseStringArray(ArrayList<String> arrlist) {
+		Collections.reverse(arrlist);
+		System.out.println(arrlist + " --> Reversed SortStringArray output");
+	}
+
+	public static void ReversetIntegerArray(ArrayList<Integer> arrlist) {
+		Collections.reverse(arrlist);
+		System.out.println(arrlist + " --> Reversed IntegerArray output");
+	}
+
+	public static void ConvertIntArrayToArraylist(int[] inputarray) {
+		List<Integer> IntAlist = new ArrayList <Integer>();
+		for (int value : inputarray) {
+			IntAlist.add(value);
+		}
+		System.out.println(IntAlist + " --> output from ConvertArrayToArraylist");
+	}
+
+	public static void ConvertStringArrayToArraylist(String[] inputarray) {
+		List<String> AList = Arrays.asList(inputarray);
+		System.out.println(Arrays.toString(AList.toArray()) + " --> output from ConvertStringArrayToArraylist");
+		for (String value : AList) {
+			System.out.println(value + " --> output value from ConvertStringArrayToArraylist");
+		}
+
 	}
 
 }

@@ -71,10 +71,22 @@ public class LinkedListExample {
 		Llist.removeLast();
 		System.out.println("linked list after removing value at last position : " + Llist);
 		
+		// Converting LinkedList to ArrayList
+	    List<String> list = new ArrayList<String>(Llist);
+	    System.out.println("arraylist fro mlinkedlist : " + list);
 		
+		ArrayList<String> arrlist = new ArrayList<String>();
+
+		arrlist.add("StringOne");
+		arrlist.add("StringTwo");
+		arrlist.add("StringThree");
+		arrlist.add("StringFour");
+		arrlist.add("StringFive");
+
 		
-		
-		
+		// Converting Arraylist to LinkedList
+	    List<String> Linklist = new LinkedList<String>(arrlist);
+	    System.out.println("linked list from arraylist : " + Linklist);
 		
 		
 	}
