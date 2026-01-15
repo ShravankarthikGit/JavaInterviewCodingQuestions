@@ -21,6 +21,5 @@ public class fibonacciSeries {
 		for (int j = 0; j < fibarray.length; j++) {
 			System.out.println("Series : " + fibarray[j]);
 		}
-
 	}
 }
