@@ -1,0 +1,53 @@
+package interviewques1;
+
+import java.util.Scanner;
+import java.util.random.RandomGenerator;
+
+public class NumberGuessingGame {
+
+	// Java Program to demonstrates the Number guessing game
+
+	public static void guessingNumberGame() {
+		Scanner sc = new Scanner(System.in);
+
+		// Generate a random number between 1 and 100
+		int number = 1 + (int) (100 * Math.random());
+		
+		// Generate a random integer between 1 (inclusive) and 101 (exclusive)
+       // int randomNumber = RandomGenerator.getDefault().nextInt(1, 101);
+
+		// Number of attempts
+		int K = 5;
+
+		System.out.println("A number is chosen between 1 and 100.");
+		System.out.println("You have " + K + " attempts to guess the correct number.");
+
+		// Loop for K attempts
+		for (int i = 0; i < K; i++) {
+			System.out.print("Enter your guess: ");
+			int guess = sc.nextInt();
+
+			// Check conditions
+			if (guess == number) {
+				System.out.println(" Congratulations! You guessed the correct number.");
+				sc.close();
+
+				// Exit function if guessed correctly
+				return;
+			} else if (guess < number) {
+				System.out.println(" The number is greater than " + guess);
+			} else {
+				System.out.println(" The number is less than " + guess);
+			}
+		}
+
+		// If the user runs out of attempts
+		System.out.println("You've exhausted all attempts. The correct number was: " + number);
+		sc.close();
+	}
+
+	public static void main(String[] args) {
+		guessingNumberGame();
+	}
+
+}

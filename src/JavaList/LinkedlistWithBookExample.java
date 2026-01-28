@@ -15,10 +15,12 @@ public class LinkedlistWithBookExample {
 		list.add(b1);
 		list.add(b2);
 		list.add(b3);
+		
+		System.out.println(list);
 		// Traversing list
 		for (Book b : list) {
 			System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity);
 		}
-		System.out.println(b1);
+		//System.out.println(b1);
 	}
 }

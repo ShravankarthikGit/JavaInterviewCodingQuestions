@@ -24,7 +24,7 @@ public class ListImplementation {
 
 	public static void ListWithGenerics() {
 		// Using List with generics
-		List<String> testlistone = new ArrayList<String>();
+		List<String> testlistone = new ArrayList<String>(List.of("callyGeneric"));
 		testlistone.add("TomGeneric");
 		testlistone.add("CatGeneric");
 		testlistone.add("JerryGeneric");
@@ -49,15 +49,16 @@ public class ListImplementation {
 	
 	/* Java 10 */ // Java 10 not installed
 
-/*	public static void ListWithGenericsJava10() {
+	public static void ListWithGenericsJava10() {
 		// Using List with generics no need for object type on right side
-		var testlistone = new ArrayList<String>();
-		testlistone.add("TomGeneric");
-		testlistone.add("CatGeneric");
-		testlistone.add("JerryGeneric");
-		for (String name : testlistone) {
+		//List<String> testlisttrwo = new ArrayList();
+		List<String> testlisttrwo = new ArrayList();
+		testlisttrwo.add("TomGeneric");
+		testlisttrwo.add("CatGeneric");
+		testlisttrwo.add("JerryGeneric");
+		for (String name : testlisttrwo) {
 			System.out.println(name);
 		}
-	}*/
+	}
 
 }

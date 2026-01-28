@@ -51,7 +51,7 @@ public class ThrowsExample {
 		throw new ArithmeticException("Calculation error");
 	}
 
-	//Method2 calls methos one and throws exception
+	//Method2 calls method one and throws exception
 	void method2() throws ArithmeticException {
 		method1();
 	}

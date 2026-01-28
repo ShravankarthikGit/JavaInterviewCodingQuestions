@@ -3,6 +3,7 @@ package interviewques1;
 public class toFindMaxMinNumbers {
 	public static void main(String args[]){
 		int[] test = {1,5,9,45,30};
+		
 			int maxnum =test[0];
 			int minnumber = test[0];
 			

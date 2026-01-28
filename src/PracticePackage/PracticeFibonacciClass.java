@@ -12,11 +12,8 @@ public class PracticeFibonacciClass {
 			fibarray[i] = fibarray[i-1] + fibarray[i-2] ;
 		}
 		
-		for (int j=0; j<=fibarray.length;j++){
+		for (int j=0; j<fibarray.length;j++){
 			System.out.println(fibarray[j]);
 		}
-		
-		
 	}
-
 }

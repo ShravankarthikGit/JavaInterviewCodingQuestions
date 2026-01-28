@@ -1,4 +1,4 @@
-package interviewques1;
+package exceptionHandling;
 
 public class ExceptionHandling {
 	

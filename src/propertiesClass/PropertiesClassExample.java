@@ -7,25 +7,27 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesClassExample {
-	   public static void main(String args[]) throws IOException {
-		      Properties prop = readPropertiesFile("C:\\Users\\886257\\git\\JavaInterviewCodingQuestions\\src\\propertiesClass\\Test.properties");
-		      System.out.println("username: "+ prop.getProperty("username"));
-		      System.out.println("password: "+ prop.getProperty("password"));
-		   }
-		   public static Properties readPropertiesFile(String fileName) throws IOException {
-		      FileInputStream fis = null;
-		      Properties prop = null;
-		      try {
-		         fis = new FileInputStream(fileName);
-		         prop = new Properties();
-		         prop.load(fis);
-		      } catch(FileNotFoundException fnfe) {
-		         fnfe.printStackTrace();
-		      } catch(IOException ioe) {
-		         ioe.printStackTrace();
-		      } finally {
-		         fis.close();
-		      }
-		      return prop;
-		   }
+	public static void main(String args[]) throws IOException {
+		Properties propp = readPropertiesFile(
+				"C:\\Users\\886257\\git\\JavaInterviewCodingQuestions\\src\\propertiesClass\\Test.properties");
+		System.out.println("username: " + propp.getProperty("username"));
+		System.out.println("password: " + propp.getProperty("password"));
+	}
+
+	public static Properties readPropertiesFile(String fileName) throws IOException {
+		FileInputStream fis = null;
+		Properties prop = null;
+		try {
+			fis = new FileInputStream(fileName);
+			prop = new Properties();
+			prop.load(fis);
+		} catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			fis.close();
+		}
+		return prop;
+	}
 }

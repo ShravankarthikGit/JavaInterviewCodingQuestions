@@ -3,6 +3,7 @@ package interviewques1;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 public class LinkedListIteration {
@@ -15,6 +16,8 @@ public class LinkedListIteration {
 
 	public static void iterator(LinkedList<String> li) {
 		li = new LinkedList<>(Arrays.asList("apple", "banana", "peach"));
+		// another way to add values to list 
+		li = new LinkedList<>(List.of("apple", "banana", "peach"));
 		System.out.println(li);
 
 		// add few more elements to list
