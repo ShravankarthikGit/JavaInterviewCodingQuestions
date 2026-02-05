@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Map.Entry;
+import java.util.stream.Stream;
 
 ///////////////////////////Scenario 14 /////////////////////////////////
 
@@ -34,10 +36,28 @@ class SmartWatch {
 
 }
 
-
 public class AIQuestions {
 
 	public static void main(String[] args) {
+
+		// UpdatePrices();
+		// System.out.println(StringCheck("pass123"));
+		// System.out.println(StringCheck("java#2026"));
+
+		// isAccessGranted(19, true);
+		// RobotCount();
+		// reverseString("akai");
+		// ReverseIntArray();
+		// SortIntArray();
+		// DuplicateValues();
+		// PrintDates();
+		// LowStock();
+
+		// SmartWatch sw = new SmartWatch("Apple", 85);
+		// sw.showStatus();
+		// MapFilter();
+		// SwitchCaseFizzBuzz(20);
+		FirstRepeatChar();
 
 //////////////////////////////Scenario 1///////////////////////////////////
 		/*
@@ -146,22 +166,6 @@ public class AIQuestions {
 		 * 
 		 * System.out.println("Calculation attempted."); }
 		 */
-///////////////////////////Scenario 5 /////////////////////////////////
-/// 
-		// isAccessGranted(19, true);
-		// RobotCount();
-		// reverseString("akai");
-		// ReverseIntArray();
-		// SortIntArray();
-		// DuplicateValues();
-		// PrintDates();
-		// LowStock();
-		
-		SmartWatch sw = new SmartWatch("Apple", 85);
-		sw.showStatus();
-		
-		
-
 	}
 
 ///////////////////////////Scenario 6 /////////////////////////////////
@@ -362,10 +366,177 @@ public class AIQuestions {
 		stock.stream().filter(f -> f < 10).forEach(f -> System.out.println("Low stock item using stream: " + f));
 	}
 
+///////////////////////////Scenario 14 /////////////////////////////////
+	/*
+	 * The Scenario: You’re running a futuristic coffee shop. Due to inflation, you
+	 * need to raise the price of every item in your store by $1.50. Your Goal:
+	 * Create a List<Double> named prices with these values: 2.50, 4.00, 5.50.
+	 * Create a new empty ArrayList<Double> called newPrices. Use an enhanced
+	 * for-loop to iterate through prices. Inside the loop, add 1.50 to each price
+	 * and add the result to newPrices. Print
+	 */
+
+	public static List<Double> UpdatePrices() {
+
+		List<Double> OrigPrices = new ArrayList<Double>(List.of(2.50, 4.00, 5.50));
+		List<Double> NewPrices = new ArrayList<Double>();
+		for (Double p : OrigPrices) {
+			NewPrices.add(p + 1.50);
+		}
+		System.out.println("Updated Prices are: " + NewPrices);
+		return NewPrices;
+	}
+
+///////////////////////////Scenario 15 /////////////////////////////////	
+	/*
+	 * The Scenario: You're building a login system. A password is only "Secure" if
+	 * it is at least 8 characters long AND contains the "#" symbol. Your Goal:
+	 * Create a method public static boolean isSecure(String password). Use
+	 * .length() to check the size. Use .contains("#") to check for the symbol.
+	 * Return true if both conditions are met, otherwise false.
+	 */
+
+	public static boolean StringCheck(String pass) {
+		boolean check = false;
+		if ((pass.length() >= 8) && pass.contains("#")) {
+			check = true;
+		}
+		return check;
+
+		// another approach
+		// return password.length() >= 8 && password.contains("#");
+	}
+
+///////////////////////////Scenario 16 /////////////////////////////////	
+
+	/*
+	 * The Scenario: You're coding a controller for a 2026 delivery robot. It
+	 * receives a String command and needs to return a "Task Description. " Your
+	 * Goal: Use the modern Arrow Syntax (->) for your switch. If the command is
+	 * "START", return "Robot is moving". If the command is "STOP", return
+	 * "Robot is parking".
+	 */
+
+	public static String SwitchCase(String action) {
+
+		switch (action) {
+		case "START":
+			return "Robot is moving";
+		case "STOP":
+			return "Robot is parking";
+		default:
+			return "Command Not recognized";
+		}
+
+		// Another approach using arrow syntax can be used with java 21.
+		/*
+		 * return switch (action) { case "START" -> "Robot is moving"; case "STOP" ->
+		 * "Robot is parking"; default -> "Command Not recognized"; };
+		 */
+	}
+
+///////////////////////////Scenario 17 /////////////////////////////////	
+
+	/*
+	 * The Scenario: You are managing a 2026 tech store. You have a list of
+	 * products, and you want to get a list of names for products that cost more
+	 * than $500. Your Goal: Define a record Product(String name, double price) {}.
+	 * Create a List<Product> with: new Product("Phone", 800.0) new Product("Mouse",
+	 * 50.0) new Product("Monitor", 600.0) Use a Stream to: Filter for price > 500.
+	 * Map to get just the name (Hint: .map(Product::name)). Collect into a
+	 * List<String>. Print the final list of names
+	 */
+
+	public static void MapFilter() {
+
+		HashMap<String, Double> products = new LinkedHashMap<String, Double>();
+		products.put("Phone", 800.0);
+		products.put("Mouse", 50.0);
+		products.put("Monitor", 600.0);
+
+		// System.out.println(products);
+		// Using stream
+		products.entrySet().stream().filter(p -> p.getValue() > 500).map(Map.Entry::getKey).toList()
+				.forEach(System.out::println);
+		// Using for loop
+		for (Entry<String, Double> entry : products.entrySet()) {
+			// System.out.println(entry.getKey());
+			// System.out.println(entry.getValue());
+			if (entry.getValue() > 500) {
+				System.out.println("Product with price greater than 500 is: " + entry.getKey());
+			}
+		}
+	}
+
+///////////////////////////Scenario 18 /////////////////////////////////	
+	/*
+	 * The Scenario: You have two delivery routes for your 2026 drone fleet. Some
+	 * houses are on both routes. You need a single list of unique addresses to
+	 * visit. Your Goal: Create List<String> routeA = List.of("123 Maple",
+	 * "456 Oak", "789 Pine"); Create List<String> routeB = List.of("456 Oak",
+	 * "101 River", "123 Maple"); Create a Set that combines both lists into one
+	 * unique collection. Hint: You can use the .addAll() method or pass a list into
+	 * the constructor of a HashSet.
+	 */
+	public static void ListMerger() {
+		List<String> list1 = new LinkedList<String>(List.of("123 Maple", "456 Oak", "789 Pine"));
+		List<String> list2 = new LinkedList<String>(List.of("456 Oak", "101 River", "123 Maple"));
+		HashSet<String> uniqueAddresses = new HashSet<String>(list1);
+		uniqueAddresses.addAll(list2);
+		System.out.println("Unique addresses to visit: " + uniqueAddresses);
+
+		// Using stream
+		List<String> combined = Stream.concat(list1.stream(), list2.stream()).distinct().toList();
+		System.out.println("Unique addresses: " + combined);
+	}
+
+///////////////////////////Scenario 19 /////////////////////////////////
+	/*
+	 * Task: Write a method that prints numbers from 1 to 20. If a number is
+	 * divisible by 3, print "Fizz". If a number is divisible by 5, print "Buzz". If
+	 * it's divisible by both, print "FizzBuzz". Otherwise, just print the number.
+	 */
+	public static String SwitchCaseFizzBuzz(Integer number) {
+		/*
+		 * if (number % 3 == 0 && number % 5 == 0) { System.out.println("FizzBuzz");
+		 * return "FizzBuzz"; } else if (number % 3 == 0) { System.out.println("FIZZ");
+		 * return "FIZZ"; } else if (number % 5 == 0) { System.out.println("Buzz");
+		 * return "Buzz"; } else { System.out.println(number); return
+		 * Integer.toString(number); }
+		 */
+		return switch (Boolean.valueOf(true)) {
+		case Boolean b when number % 15 == 0 -> "FizzBuzz";
+		case Boolean b when number % 3 == 0 -> "Fizz";
+		case Boolean b when number % 5 == 0 -> "Buzz";
+		default -> String.valueOf(number);
+		};
+	}
+
+///////////////////////////Scenario 20 /////////////////////////////////
+	/*
+	 * Task: Find the first character in a string that does not repeat. Input:
+	 * "swiss" Output: 'w' (because 's' and 'i' appear more than once or 'i' comes
+	 * after 'w'). The 2026 Strategy: Use a LinkedHashMap<Character, Integer> to
+	 * store each character and its count. Loop through the string once to fill the
+	 * map. Loop through the map once to find the first character with a value of 1
+	 */
+
+	public static void FirstRepeatChar() {
+		String st = "swiss";
+		LinkedHashMap<Character, Integer> Lmp = new LinkedHashMap<Character, Integer>();
+		for (char c : st.toCharArray()) {
+			// getOrDefault is a clean way to handle new vs existing keys
+			Lmp.put(c, Lmp.getOrDefault(c, 0) + 1);
+		}
+
+		System.out.println(Lmp);
+
+		for (Entry<Character, Integer> entry : Lmp.entrySet()) {
+			if (entry.getValue() == 1) {
+				System.out.println(entry.getKey());
+				break;
+			}
+		}
+	}
+
 }
-
-
-
-
-
-
